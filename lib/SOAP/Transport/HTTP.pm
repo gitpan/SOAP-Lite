@@ -4,17 +4,17 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: HTTP.pm 341 2009-09-30 18:34:58Z kutterma $
+# $Id: HTTP.pm 354 2010-03-18 18:29:09Z kutterma $
 #
 # ======================================================================
 
 package SOAP::Transport::HTTP;
 
 use strict;
-use vars qw($VERSION);
-use SOAP::Lite; $VERSION = $SOAP::Lite::VERSION;
 
+our $VERSION = 0.711;
 
+use SOAP::Lite;
 use SOAP::Packager;
 
 # ======================================================================
@@ -243,7 +243,7 @@ sub send_receive {
             elsif ( !$SOAP::Constants::DO_NOT_USE_CHARSET && $encoding ) {
                 my $tmpType = $http_request->headers->header('Content-type');
 
-         #	$http_request->content_type($tmpType.'; charset=' . lc($encoding));
+                # $http_request->content_type($tmpType.'; charset=' . lc($encoding));
                 my $addition = '; charset=' . lc($encoding);
                 $http_request->content_type( $tmpType . $addition )
                   if ( $tmpType !~ /$addition/ );
@@ -527,7 +527,12 @@ sub handle {
     my $self = shift->new;
 
     my $length = $ENV{'CONTENT_LENGTH'} || 0;
-    my $chunked = ( $ENV{'HTTP_TRANSFER_ENCODING'} =~ /^chunked.*$/ ) || 0;
+
+    # if the HTTP_TRANSFER_ENCODING env is defined, set $chunked true
+    # else to false
+    my $chunked = (defined $ENV{'HTTP_TRANSFER_ENCODING'}
+        && $ENV{'HTTP_TRANSFER_ENCODING'} =~ /^chunked.*$/) || 0;
+
 
     my $content = q{};
 
@@ -800,11 +805,16 @@ sub handler {
     # which is not what we want.
     # will emulate normal response, but with custom status code
     # which could also be 500.
-    $r->status( $self->response->code );
+    if ($self->{'MOD_PERL_VERSION'} < 2 ) {
+        $r->status( $self->response->code );
+    }
+    else {
+        $r->status_line($self->response->code);
+    }
 
     # Begin JT Justman patch
     if ( $self->{'MOD_PERL_VERSION'} > 1 ) {
-        $self->response->headers->scan( sub { $r->headers_out->set(@_) } );
+        $self->response->headers->scan(sub { $r->headers_out->add(@_) });
         $r->content_type( join '; ', $self->response->content_type );
     }
     else {

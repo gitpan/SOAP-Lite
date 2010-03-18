@@ -4,18 +4,18 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: IO.pm 341 2009-09-30 18:34:58Z kutterma $
+# $Id: IO.pm 353 2010-03-17 21:08:34Z kutterma $
 #
 # ======================================================================
 
 package SOAP::Transport::IO;
 
 use strict;
-use vars qw($VERSION);
-use SOAP::Lite; $VERSION = $SOAP::Lite::VERSION;
+
+our $VERSION = 0.711;
 
 use IO::File;
-
+use SOAP::Lite;
 # ======================================================================
 
 package SOAP::Transport::IO::Server;

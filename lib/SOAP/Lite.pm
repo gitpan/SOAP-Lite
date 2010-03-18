@@ -4,7 +4,7 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: Lite.pm 341 2009-09-30 18:34:58Z kutterma $
+# $Id: Lite.pm 353 2010-03-17 21:08:34Z kutterma $
 #
 # ======================================================================
 
@@ -16,10 +16,9 @@
 
 package SOAP::Lite;
 
-use 5.005;
+use 5.006; #weak references require perl 5.6
 use strict;
-use vars qw($VERSION);
-use version; $VERSION = qv('0.710.10');
+our $VERSION = 0.711;
 # ======================================================================
 
 package SOAP::XMLSchemaApacheSOAP::Deserializer;
@@ -2381,7 +2380,7 @@ sub typecast { } # typecast is called for both objects AND scalar types
 
 package SOAP::Client;
 
-use vars qw($VERSION);
+
 use SOAP::Lite::Utils;
 
 $VERSION = $SOAP::Lite::VERSION;

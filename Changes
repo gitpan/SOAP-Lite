@@ -1,7 +1,7 @@
 #
 # Revision history for Perl extension SOAP::Lite.
 #
-# $Id: Changes 341 2009-09-30 18:34:58Z kutterma $
+# $Id: Changes 363 2010-03-18 20:23:09Z kutterma $
 
 The contents of this file provides a change history for the SOAP::Lite
 Perl module. New features are designated with a '+' and bug fixes with
@@ -15,6 +15,16 @@ http://rt.cpan.org/Public/Dist/Display.html?Name=SOAP-Lite
 -----------------------------------------------------------------------
 THIS RELEASE
 -----------------------------------------------------------------------
+0.711
+   SOAP::Transport::JABBER, SOAP::Transport::MQ and SOAP::Tranport::FTP
+   are now in their own distributions.
+   ! [2790747] Bugtracker specification in META.yml missing
+   ! #45997: Inconsistency in SOAP::Serializer documentation
+   ! #55618: HTTP_TRANSFER_ENCODING can be undefined in SOAP/Transpo
+   ! [2946245] / #54106 Only last Cookie Set
+   ! #50178: Win32 isuue with IO::SessionData and IO::SessionSet
+   ! #41527: SOAP::Lite 0.69 with Apache2 HTTP Server module and mod_perl 2 
+           returns 500 Internal 
 0.710.10
    ! #49981: UDDI::Lite version not parsable by cpanplus (again)
 0.710.09

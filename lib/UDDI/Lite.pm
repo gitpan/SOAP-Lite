@@ -4,20 +4,20 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: Lite.pm 341 2009-09-30 18:34:58Z kutterma $
+# $Id: Lite.pm 363 2010-03-18 20:23:09Z kutterma $
 #
 # ======================================================================
 
 package UDDI::Lite;
-
-use 5.004;
+use 5.006;
 use strict;
-use vars qw($VERSION);
-use SOAP::Lite; $VERSION = $SOAP::Lite::VERSION;
+
+our $VERSION = 0.711;
 
 # ======================================================================
 
 package UDDI::Constants;
+our $VERSION = 0.711;
 
 BEGIN
 {
@@ -706,7 +706,7 @@ BEGIN
 # ======================================================================
 
 package UDDI::SOM;
-
+our $VERSION = 0.711;
 use vars qw(@ISA);
 @ISA = qw(SOAP::SOM);
 
@@ -721,6 +721,8 @@ sub result
 # ======================================================================
 
 package UDDI::Data;
+our $VERSION = 0.711;
+
 
 use Carp ();
 
@@ -864,6 +866,7 @@ sub AUTOLOAD
 # ======================================================================
 
 package UDDI::Serializer;
+our $VERSION = 0.711;
 
 use vars qw(@ISA);
 @ISA = qw(SOAP::Serializer);
@@ -921,6 +924,7 @@ sub encode_array
 # ======================================================================
 
 package UDDI::Deserializer;
+our $VERSION = 0.711;
 
 use vars qw(@ISA);
 @ISA = qw(SOAP::Deserializer);
@@ -951,6 +955,7 @@ sub deserialize
 # ======================================================================
 
 package UDDI::Lite;
+our $VERSION = 0.711;
 
 use vars qw(@ISA $AUTOLOAD %EXPORT_TAGS);
 use Exporter;
