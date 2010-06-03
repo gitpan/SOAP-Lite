@@ -1,7 +1,7 @@
 #
 # Revision history for Perl extension SOAP::Lite.
 #
-# $Id: Changes 363 2010-03-18 20:23:09Z kutterma $
+# $Id: Changes 374 2010-05-14 08:12:25Z kutterma $
 
 The contents of this file provides a change history for the SOAP::Lite
 Perl module. New features are designated with a '+' and bug fixes with
@@ -15,7 +15,13 @@ http://rt.cpan.org/Public/Dist/Display.html?Name=SOAP-Lite
 -----------------------------------------------------------------------
 THIS RELEASE
 -----------------------------------------------------------------------
-0.711
+0.712
+    ! #57409 SOAP::Lite installation problem
+    ! #52015 defined(%hash) deprecated in Perl 5.11
+    ! #39546 use of version.pm
+    ! #52637 error sending a request in perl 5.10.0 containing utf-8 data using the string data type
+    ! #55962 Spelling errors 
+0.712
    SOAP::Transport::JABBER, SOAP::Transport::MQ and SOAP::Tranport::FTP
    are now in their own distributions.
    ! [2790747] Bugtracker specification in META.yml missing

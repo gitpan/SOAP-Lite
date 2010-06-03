@@ -4,7 +4,7 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: Transport.pod 363 2010-03-18 20:23:09Z kutterma $
+# $Id: Transport.pod 372 2010-04-29 18:32:31Z kutterma $
 #
 # ======================================================================
 
@@ -243,7 +243,7 @@ This is true for all initialization parameters and methods of C<LWP::UserAgent>.
 
 =item http_request
 
-This method gives you acess to a prototype of the HTTP Request object that 
+This method gives you access to a prototype of the HTTP Request object that 
 will be transmitted to a SOAP::Server. The actual request used is a copy of
 that object.
 
@@ -252,7 +252,7 @@ the client object.
 
 =item http_response
 
-This method gives you acess to the HTTP Response object that will be, or was 
+This method gives you access to the HTTP Response object that will be, or was 
 transmitted to a SOAP Server. It returns a L<HTTP::Response> object.
 
 =back

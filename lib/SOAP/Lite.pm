@@ -4,7 +4,7 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: Lite.pm 353 2010-03-17 21:08:34Z kutterma $
+# $Id: Lite.pm 374 2010-05-14 08:12:25Z kutterma $
 #
 # ======================================================================
 
@@ -18,7 +18,7 @@ package SOAP::Lite;
 
 use 5.006; #weak references require perl 5.6
 use strict;
-our $VERSION = 0.711;
+our $VERSION = 0.712;
 # ======================================================================
 
 package SOAP::XMLSchemaApacheSOAP::Deserializer;
@@ -430,8 +430,10 @@ sub clone {
 package SOAP::Transport;
 
 use vars qw($AUTOLOAD @ISA);
-
 @ISA = qw(SOAP::Cloneable);
+
+use Class::Inspector;
+
 
 sub DESTROY { SOAP::Trace::objects('()') }
 
@@ -461,7 +463,7 @@ sub proxy {
     (my $protocol_class = "${class}::$protocol") =~ s/-/_/g;
 
     no strict 'refs';
-    unless (defined %{"$protocol_class\::Client::"}
+    unless (Class::Inspector->loaded("$protocol_class\::Client")
         && UNIVERSAL::can("$protocol_class\::Client" => 'new')
     ) {
         eval "require $protocol_class";
@@ -1976,6 +1978,7 @@ package SOAP::Deserializer;
 
 use vars qw(@ISA);
 use SOAP::Lite::Utils;
+use Class::Inspector;
 
 @ISA = qw(SOAP::Cloneable);
 
@@ -2200,7 +2203,7 @@ sub decode_value {
 
     {
         no strict qw(refs);
-        if (! defined(%{"${schemaclass}::"}) ) {
+        if (! Class::Inspector->loaded($schemaclass) ) {
             eval "require $schemaclass" or die $@ if not ref $schemaclass;
         }
     }
@@ -4331,7 +4334,7 @@ print the following message on success:
 
 There are three common (and one less common) variants of SOAP messages.
 
-These adress the message style (positional parameters vs. specified message
+These address the message style (positional parameters vs. specified message
 documents) and encoding (as-is vs. typed).
 
 The different message styles are:
@@ -5565,7 +5568,7 @@ of this software.
 
 =head1 HACKING
 
-SOAP::Lite's developement takes place on sourceforge.net.
+SOAP::Lite's development takes place on sourceforge.net.
 
 There's a subversion repository set up at
 

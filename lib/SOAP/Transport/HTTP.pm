@@ -4,7 +4,7 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: HTTP.pm 354 2010-03-18 18:29:09Z kutterma $
+# $Id: HTTP.pm 374 2010-05-14 08:12:25Z kutterma $
 #
 # ======================================================================
 
@@ -12,7 +12,7 @@ package SOAP::Transport::HTTP;
 
 use strict;
 
-our $VERSION = 0.711;
+our $VERSION = 0.712;
 
 use SOAP::Lite;
 use SOAP::Packager;
@@ -197,10 +197,15 @@ sub send_receive {
           # from string (doing pack with 'C0A*' modifier) if length and
           # bytelength are not the same
             my $bytelength = SOAP::Utils::bytelength($envelope);
-            $envelope = pack( 'C0A*', $envelope )
-              if !$SOAP::Constants::DO_NOT_USE_LWP_LENGTH_HACK
-                  && length($envelope) != $bytelength;
-
+			if ($] < 5.008) {
+				$envelope = pack( 'C0A*', $envelope );
+			}
+			else {
+				require Encode;
+				$envelope = Encode::encode('UTF-8', $envelope); 
+			}
+            #  if !$SOAP::Constants::DO_NOT_USE_LWP_LENGTH_HACK
+            #      && length($envelope) != $bytelength;
             $http_request->content($envelope);
             $http_request->protocol('HTTP/1.1');
 
@@ -528,7 +533,7 @@ sub handle {
 
     my $length = $ENV{'CONTENT_LENGTH'} || 0;
 
-    # if the HTTP_TRANSFER_ENCODING env is defined, set $chunked true
+    # if the HTTP_TRANSFER_ENCODING env is defined, set $chunked if it's chunked*
     # else to false
     my $chunked = (defined $ENV{'HTTP_TRANSFER_ENCODING'}
         && $ENV{'HTTP_TRANSFER_ENCODING'} =~ /^chunked.*$/) || 0;
