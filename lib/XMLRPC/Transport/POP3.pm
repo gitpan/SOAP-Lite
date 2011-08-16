@@ -4,7 +4,7 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: POP3.pm 374 2010-05-14 08:12:25Z kutterma $
+# $Id: POP3.pm 384 2011-08-16 17:08:08Z kutterma $
 #
 # ======================================================================
 
@@ -12,7 +12,7 @@ package XMLRPC::Transport::POP3;
 
 use strict;
 
-our $VERSION = 0.712;
+our $VERSION = 0.713;
 use XMLRPC::Lite;
 
 use SOAP::Transport::POP3;
