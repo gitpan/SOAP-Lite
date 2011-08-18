@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               SOAP-Lite
-version:            0.713
+version:            0.714
 abstract:           Perl's Web Services Toolkit
 author:
     - Pavel Kulchenko, Randy J Ray, Byrne Reese, Martin Kutter (MKUTTER@cpan.org)
@@ -11,23 +11,25 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    Class::Inspector:  0
-    Compress::Zlib:    0
-    constant:          0
-    FCGI:              0
-    HTTP::Daemon:      0
-    IO::File:          0
-    IO::Socket::SSL:   0
-    LWP::UserAgent:    0
-    MIME::Base64:      0
-    MIME::Parser:      0
-    Net::POP3:         0
-    perl:              5.006
-    Scalar::Util:      0
-    Task::Weaken:      0
-    Test::More:        0
-    URI:               0
-    XML::Parser:       2.23
+    Class::Inspector:     0
+    Compress::Zlib:       0
+    constant:             0
+    FCGI:                 0
+    HTTP::Daemon:         0
+    IO::File:             0
+    IO::Socket::SSL:      0
+    LWP::UserAgent:       0
+    MIME::Base64:         0
+    MIME::Parser:         0
+    Net::POP3:            0
+    perl:                 5.006
+    Scalar::Util:         0
+    SOAP::Transport::FTP:  0.712
+    SOAP::Transport::JABBER:  0.712
+    Task::Weaken:         0
+    Test::More:           0
+    URI:                  0
+    XML::Parser:          2.23
 resources:
     repository:  https://soaplite.svn.sourceforge.net/svnroot/soaplite/branches/0.71
 no_index:

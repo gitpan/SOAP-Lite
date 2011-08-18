@@ -1,7 +1,7 @@
 #
 # Revision history for Perl extension SOAP::Lite.
 #
-# $Id: Changes 384 2011-08-16 17:08:08Z kutterma $
+# $Id: Changes 386 2011-08-18 19:48:31Z kutterma $
 
 The contents of this file provides a change history for the SOAP::Lite
 Perl module. New features are designated with a '+' and bug fixes with
@@ -15,6 +15,9 @@ http://rt.cpan.org/Public/Dist/Display.html?Name=SOAP-Lite
 -----------------------------------------------------------------------
 THIS RELEASE
 -----------------------------------------------------------------------
+0.714
+    Moved SOAP::Transport::TCP into SOAP-Transport-TPC distribution
+    ! #70329 - not generating attributes properly (deleting id attribute)
 0.713
     ! #52637 error sending a request in perl 5.10.0 containing utf-8 data using the string data type
 	! #48775 Small bug in SOAP::Packager
