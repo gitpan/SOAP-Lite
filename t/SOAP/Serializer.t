@@ -11,14 +11,17 @@ is $serializer->find_prefix('http://schemas.xmlsoap.org/soap/envelope/'), 'soap'
 ok my $tag = $serializer->tag('fooxml', {}), 'serialize <fooxml/>';
 ok $tag = $serializer->tag('_xml', {}), 'serialize <_xml/>';
 eval {
-    $tag = $serializer->tag('xml:lang', {});
+    $tag = $serializer->tag('---', {});
 };
-like $@, qr{^Element \s 'xml:lang' \s can't \s be \s allowed}x, 'error on <xml:lang/>';
+like $@, qr{^Element \s '---' \s can't \s be \s allowed}x, 'error on <xml:lang/>';
 undef $@;
 eval {
+	local $SIG{__WARN__} = sub {
+		like $_[0], qr{^Element \s 'xmlfoo'}x;
+	};
+
     $tag = $serializer->tag('xmlfoo', {});
 };
-like $@, qr{^Element \s 'xmlfoo' \s can't \s be \s allowed}x, 'error on <xmlfoo/>';
 
 
 my $xml = $serializer->envelope('fault', faultstring => '>>> foo <<<');

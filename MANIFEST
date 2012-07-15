@@ -100,8 +100,6 @@ examples/XMLRPC/xmlrpc.daemon
 HACKING
 lib/Apache/SOAP.pm
 lib/Apache/XMLRPC/Lite.pm
-lib/IO/SessionData.pm
-lib/IO/SessionSet.pm
 lib/SOAP/Client.pod
 lib/SOAP/Constants.pm
 lib/SOAP/Data.pod
@@ -164,7 +162,6 @@ t/12-cgi_https.t
 t/13-mod_perl.t
 t/14-cgi_apache.t
 t/15-daemon.t
-t/16-tcp.t
 t/17-mod_soap.t
 t/19-apachesoap.t
 t/21-public.t
@@ -180,8 +177,6 @@ t/36-leaks.t
 t/37-mod_xmlrpc.t
 t/38-packager.t
 t/40-loopback.t
-t/IO/SessionData.t
-t/IO/SessionSet.t
 t/SOAP/Data.t
 t/SOAP/Lite/Deserializer/XMLSchema1999.t
 t/SOAP/Lite/Deserializer/XMLSchema2001.t
@@ -203,3 +198,4 @@ t/XMLRPC/Lite.t
 t/XML/Parser/adam.xml
 t/XML/Parser/Lite.t
 
+META.json                                Module JSON meta-data (added by MakeMaker)

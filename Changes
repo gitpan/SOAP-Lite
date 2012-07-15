@@ -1,7 +1,7 @@
 #
 # Revision history for Perl extension SOAP::Lite.
 #
-# $Id: Changes 386 2011-08-18 19:48:31Z kutterma $
+# $Id: Changes 415 2012-07-15 09:22:04Z kutterma $
 
 The contents of this file provides a change history for the SOAP::Lite
 Perl module. New features are designated with a '+' and bug fixes with
@@ -15,6 +15,20 @@ http://rt.cpan.org/Public/Dist/Display.html?Name=SOAP-Lite
 -----------------------------------------------------------------------
 THIS RELEASE
 -----------------------------------------------------------------------
+0.715
+    ! #75938 Change to warning / add configuration variable to allow XML tags starting with /xml/i
+    ! #76902 Missing info in "SSL CERTIFICATE AUTHENTICATION" documentation
+	! #74577 work around/fixes for success with MS WS https/compressed
+    ! #74308 SOAP-Lite fails for operations with period in name
+    ! #73802 client did not set the encoding of the soap-envelope to 'iso-8859-1' in HTTP-request
+    ! #75019 HTTP server doesn't process PIPE signal
+    ! #72836 Processing a SOAP 1.2 request breaks the next SOAP 1.1 response
+    ! #70381 SOAP-Lite performance
+    ! #53375 comments after <?xml .. >
+    ! #63693 Uninitalized value (again)
+    ! #37360 Use of uninitialized variables in SOAP tests
+    ! fixed encoding in xmlrpc keys
+    ! #15176 problems with SOAP::Header ->value 
 0.714
     Moved SOAP::Transport::TCP into SOAP-Transport-TPC distribution
     ! #70329 - not generating attributes properly (deleting id attribute)

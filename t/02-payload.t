@@ -351,7 +351,9 @@ my($a, $s, $r, $serialized, $deserialized);
 
   $a = { b => 2 };
 
-  $serialized = SOAP::Serializer->autotype(0)->method(a => SOAP::Header->value($a), $a);
+  print $serialized = SOAP::Serializer->autotype(0)->method(a => SOAP::Header->value($a), $a);
+  print "\n";
+  print '<soap:Header><c-gensym\d+ href="#ref-(\d+)" /></soap:Header><soap:Body><a><c-gensym\d+ href="#ref-\1" /></a><c-gensym(\d+) id="ref-\1"><b>2</b></c-gensym\2></soap:Body>', "\n";
   ok($serialized =~ m!<soap:Header><c-gensym\d+ href="#ref-(\d+)" /></soap:Header><soap:Body><a><c-gensym\d+ href="#ref-\1" /></a><c-gensym(\d+) id="ref-\1"><b>2</b></c-gensym\2></soap:Body>!);
 }
 

@@ -122,7 +122,7 @@ EOX
   $serialized = SOAP::Serializer->namespaces({})->serialize(
     SOAP::Data->name(test => \SOAP::Data->value($b, $b))
   );
-
+print $serialized, "\n";
   ok($serialized =~ m!<c-gensym\d+ href="#ref-(\w+)" /><c-gensym\d+ href="#ref-\1" /><c-gensym(\d+) id="ref-\1"><c-gensym(\d+) xsi:type="xsd:int">1</c-gensym\3></c-gensym\2>!);
 }
 

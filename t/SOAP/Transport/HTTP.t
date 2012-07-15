@@ -25,7 +25,8 @@ SKIP: {
     );
     my $client;
     ok $client = SOAP::Transport::HTTP::Client->new();
-    $client->send_receive();
+    $client->send_receive(endpoint => 'http://example.org',
+		envelope => '');
     is $client->code(), '200';
     is $client->message(), '200 OK';
 }

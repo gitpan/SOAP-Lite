@@ -4,7 +4,7 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: Transport.pod 386 2011-08-18 19:48:31Z kutterma $
+# $Id: Transport.pod 409 2012-06-25 17:51:01Z kutterma $
 #
 # ======================================================================
 
@@ -152,6 +152,26 @@ Or, alternatively, you can do the above on a single line:
 Cookies will be taken from the response and provided to the request. You may access and manipulate cookies received, as well as add cookies of your own by using the C<HTTP::Cookies> interfaces.
 
 =head3 SSL CERTIFICATE AUTHENTICATION
+
+The default SSL implementation for the HTTP client library L<LWP::UserAgent> used by SOAP::Lite is L<IO::Socket::SSL>.
+
+To enable certificate based authentication, you'll have to pass your certificate and key as additional options to the
+proxy() method like this:
+
+    $soap->proxy( $url, ssl_opts => {
+        SSL_cert_file => 'client-cert.pem',
+        SSL_key_file  => 'client-key.pem'
+    });
+
+Or you can set them later like this:
+
+    $soap->transport->ssl_opts(
+        SSL_cert_file => 'client-cert.pem',
+        SSL_key_file  => 'client-key.pem'
+    );
+
+
+If you're using L<Crypt::SSLeay>, the following applies:
 
 To get certificate authentication working you need to set three environment variables: C<HTTPS_CERT_FILE>, C<HTTPS_KEY_FILE>, and optionally C<HTTPS_CERT_PASS>. This can be done either through the command line, or directly within your Perl script using the C<$ENV> variable:
 
