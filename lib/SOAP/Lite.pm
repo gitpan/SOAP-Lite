@@ -4,7 +4,7 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: Lite.pm 416 2012-07-15 09:35:17Z kutterma $
+# $Id$
 #
 # ======================================================================
 
@@ -18,7 +18,7 @@ package SOAP::Lite;
 
 use 5.006; #weak references require perl 5.6
 use strict;
-our $VERSION = 0.715;
+our $VERSION = 0.716;
 # ======================================================================
 
 package SOAP::XMLSchemaApacheSOAP::Deserializer;
@@ -1990,7 +1990,7 @@ sub match {
 sub _traverse {
     my ($self, $pointer, $itself, $path, @path) = @_;
 
-    die "Incorrect parameter" unless $itself =~/^\d$/;
+    die "Incorrect parameter" unless $itself =~/^\d+$/;
 
     if ($path && substr($path, 0, 1) eq '{') {
         $path = join '/', $path, shift @path while @path && $path !~ /}/;
@@ -5602,7 +5602,7 @@ http://www.perl.com/CPAN-local/authors/id/A/AS/ASANDSTRM/XML-Parser-2.27-bin-1-M
 
 =head2 Transport Modules
 
-SOAP::Lite allows to add support for additional transport protocols, or
+SOAP::Lite allows one to add support for additional transport protocols, or
 server handlers, via separate modules implementing the SOAP::Transport::*
 interface. The following modules are available from CPAN:
 

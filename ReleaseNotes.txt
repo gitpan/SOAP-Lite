@@ -1,7 +1,7 @@
 #
 # ReleaseNotes.txt
 #
-# $Id: ReleaseNotes.txt 115 2007-11-08 21:18:25Z kutterma $
+# $Id$
 
 The following is a compilation of various issues developers should be aware of
 when developing Web services using SOAP::Lite.

@@ -5,14 +5,14 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: Constants.pm 414 2012-07-15 09:18:42Z kutterma $
+# $Id$
 #
 # ======================================================================
 package SOAP::Constants;
 use strict;
 use SOAP::Lite;
 
-our $VERSION = 0.715;
+our $VERSION = 0.716;
 
 use constant    URI_1999_SCHEMA_XSD    => "http://www.w3.org/1999/XMLSchema";
 use constant    URI_1999_SCHEMA_XSI    => "http://www.w3.org/1999/XMLSchema-instance";

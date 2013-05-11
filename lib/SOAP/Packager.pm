@@ -4,7 +4,7 @@
 # SOAP::Lite is free software; you can redistribute it
 # and/or modify it under the same terms as Perl itself.
 #
-# $Id: Packager.pm 414 2012-07-15 09:18:42Z kutterma $
+# $Id$
 #
 # ======================================================================
 
@@ -13,7 +13,7 @@ package SOAP::Packager;
 use strict;
 use vars;
 
-our $VERSION = 0.715;
+our $VERSION = 0.716;
 our $SUPPORTED_TYPES = { };
 
 sub BEGIN {
@@ -115,6 +115,7 @@ sub initialize_parser {
   $self->{'_parser'}->output_to_core('ALL');
   $self->{'_parser'}->tmp_to_core(1);
   $self->{'_parser'}->ignore_errors(1);
+  $self->{'_parser'}->extract_nested_messages(0);
 }
 
 sub generate_random_string {

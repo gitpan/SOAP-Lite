@@ -4,7 +4,7 @@
       "Pavel Kulchenko, Randy J Ray, Byrne Reese, Martin Kutter (MKUTTER@cpan.org)"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112150",
+   "generated_by" : "ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120630",
    "keywords" : [
       "SOAP",
       "SOAP client",
@@ -27,31 +27,28 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : 0
+            "ExtUtils::MakeMaker" : "0"
          }
       },
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : 0
+            "ExtUtils::MakeMaker" : "0"
          }
       },
       "runtime" : {
          "requires" : {
-            "Class::Inspector" : 0,
-            "Compress::Zlib" : 0,
-            "HTTP::Daemon" : 0,
-            "IO::File" : 0,
-            "IO::Socket::SSL" : 0,
-            "LWP::UserAgent" : 0,
-            "MIME::Base64" : 0,
-            "MIME::Parser" : 0,
-            "Net::POP3" : 0,
-            "Scalar::Util" : 0,
-            "Task::Weaken" : 0,
-            "Test::More" : 0,
-            "URI" : 0,
+            "Class::Inspector" : "0",
+            "Compress::Zlib" : "0",
+            "HTTP::Daemon" : "0",
+            "IO::File" : "0",
+            "LWP::UserAgent" : "0",
+            "MIME::Base64" : "0",
+            "Scalar::Util" : "0",
+            "Task::Weaken" : "0",
+            "Test::More" : "0",
+            "URI" : "0",
             "XML::Parser" : "2.23",
-            "constant" : 0,
+            "constant" : "0",
             "perl" : "5.006"
          }
       }
@@ -62,6 +59,6 @@
          "url" : "https://soaplite.svn.sourceforge.net/svnroot/soaplite/branches/0.71"
       }
    },
-   "version" : "0.715",
+   "version" : "0.716",
    "x_bugtracker" : "https://sourceforge.net/tracker/?group_id=66000&atid=513017"
 }
