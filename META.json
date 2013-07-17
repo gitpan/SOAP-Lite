@@ -1,7 +1,7 @@
 {
    "abstract" : "Perl's Web Services Toolkit",
    "author" : [
-      "Pavel Kulchenko, Randy J Ray, Byrne Reese, Martin Kutter (MKUTTER@cpan.org)"
+      "Pavel Kulchenko, Randy J Ray, Byrne Reese, Martin Kutter (MKUTTER@cpan.org), Fred Moyer"
    ],
    "dynamic_config" : 1,
    "generated_by" : "ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120630",
@@ -39,10 +39,18 @@
          "requires" : {
             "Class::Inspector" : "0",
             "Compress::Zlib" : "0",
+            "Crypt::SSLeay" : "0",
+            "DIME::Tools" : "0.03",
+            "Data::UUID" : "0.11",
             "HTTP::Daemon" : "0",
             "IO::File" : "0",
+            "IO::Scalar" : "2.105",
+            "IO::SessionData" : "1.03",
+            "IO::Socket::SSL" : "0",
             "LWP::UserAgent" : "0",
             "MIME::Base64" : "0",
+            "MIME::Lite" : "0",
+            "MIME::Parser" : "0",
             "Scalar::Util" : "0",
             "Task::Weaken" : "0",
             "Test::More" : "0",
@@ -56,9 +64,8 @@
    "release_status" : "stable",
    "resources" : {
       "repository" : {
-         "url" : "https://soaplite.svn.sourceforge.net/svnroot/soaplite/branches/0.71"
+         "url" : "https://github.com/redhotpenguin/soaplite"
       }
    },
-   "version" : "0.716",
-   "x_bugtracker" : "https://sourceforge.net/tracker/?group_id=66000&atid=513017"
+   "version" : "1.0"
 }
