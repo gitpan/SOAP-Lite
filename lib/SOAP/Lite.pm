@@ -17,7 +17,7 @@ package SOAP::Lite;
 use strict;
 use warnings;
 
-our $VERSION = '1.0';
+our $VERSION = '1.01';
 
 package SOAP::XMLSchemaApacheSOAP::Deserializer;
 
@@ -1363,7 +1363,7 @@ sub as_map {
             ),
             'item',
             ''
-        )} keys %$value;
+        )} sort keys %$value;
     return [
         $name,
         {'xsi:type' => "$prefix:Map", %$attr},
@@ -1474,7 +1474,7 @@ sub tag {
         foreach (keys %$namespaces) {
             $attrs->{SOAP::Utils::qualify(xmlns => $namespaces->{$_})} = $_
         }
-        $prolog = qq!<?xml version="1.0" encoding="@{[$self->encoding]}"?>!
+        $prolog = qq!<?xml version="1.01" encoding="@{[$self->encoding]}"?>!
             if defined $self->encoding;
         $prolog .= "\n" if $readable;
         $tagjoiner = " \n".(' ' x 4 ) if $readable;
@@ -1482,7 +1482,7 @@ sub tag {
     my $tagattrs = join($tagjoiner, '',
         map { sprintf '%s="%s"', $_, SOAP::Utils::encode_attribute($attrs->{$_}) }
             grep { $_ && defined $attrs->{$_} && ($_ ne 'xsi:type' || $attrs->{$_} ne '') }
-                keys %$attrs);
+                sort keys %$attrs);
 
     if ($value gt '') {
         return sprintf("$prolog$indent<%s%s>%s%s</%s>$epilog",$tag,$tagattrs,$value,($value =~ /^\s*</ ? $indent : ""),$tag);
@@ -2978,7 +2978,7 @@ sub import {
             $minus ? push(@notrace, $all ? @list : $_) : push(@symbols, $all ? @list : $_);
         }
     }
-    # TODO - I am getting a warning here about redefining a subroutine
+    no warnings qw{ redefine };
     foreach (@symbols) { *$_ = \&defaultlog }
     foreach (@notrace) { *$_ = sub {} }
 }
@@ -3897,7 +3897,7 @@ client and server side.
 
 =head1 PERL VERSION WARNING
 
-As of version SOAP::Lite version 1.0, no perl versions before 5.8 will be supported.
+As of version SOAP::Lite version 1.01, no perl versions before 5.8 will be supported.
 
 SOAP::Lite 0.71 will be the last version of SOAP::Lite running on perl 5.005
 

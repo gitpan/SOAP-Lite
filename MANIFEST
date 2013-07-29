@@ -181,6 +181,4 @@ t/SOAP/Transport/LOCAL.t
 t/SOAP/Transport/MAILTO.t
 t/SOAP/Transport/POP3.t
 t/SOAP/Transport/TCP.t
-t/TEST.pl
-
 META.json                                Module JSON meta-data (added by MakeMaker)

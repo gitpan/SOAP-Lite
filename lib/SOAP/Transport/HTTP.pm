@@ -10,7 +10,7 @@ package SOAP::Transport::HTTP;
 
 use strict;
 
-our $VERSION = 1.0;
+our $VERSION = 1.01;
 
 use SOAP::Lite;
 use SOAP::Packager;
@@ -302,7 +302,6 @@ sub send_receive {
     $self->message( $self->http_response->message );
     $self->is_success( $self->http_response->is_success );
     $self->status( $self->http_response->status_line );
-    return if ($self->http_response->is_success == 0);
 
     # Pull out any cookies from the response headers
     $self->{'_cookie_jar'}->extract_cookies( $self->http_response )
@@ -458,7 +457,7 @@ sub make_response {
     my ( $self, $code, $response ) = @_;
 
     my $encoding = $1
-      if $response =~ /^<\?xml(?: version="1.0"| encoding="([^\"]+)")+\?>/;
+      if $response =~ /^<\?xml(?: version="1.01"| encoding="([^\"]+)")+\?>/;
 
     $response =~ s!(\?>)!$1<?xml-stylesheet type="text/css"?>!
       if $self->request->content_type eq 'multipart/form-data';
@@ -607,7 +606,7 @@ sub handle {
     my $status =
       defined( $ENV{'SERVER_SOFTWARE'} )
       && $ENV{'SERVER_SOFTWARE'} =~ /IIS/
-      ? $ENV{SERVER_PROTOCOL} || 'HTTP/1.0'
+      ? $ENV{SERVER_PROTOCOL} || 'HTTP/1.01'
       : 'Status:';
     my $code = $self->response->code;
 
