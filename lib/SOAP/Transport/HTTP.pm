@@ -10,7 +10,7 @@ package SOAP::Transport::HTTP;
 
 use strict;
 
-our $VERSION = 1.01;
+our $VERSION = 1.02;
 
 use SOAP::Lite;
 use SOAP::Packager;
@@ -457,7 +457,7 @@ sub make_response {
     my ( $self, $code, $response ) = @_;
 
     my $encoding = $1
-      if $response =~ /^<\?xml(?: version="1.01"| encoding="([^\"]+)")+\?>/;
+      if $response =~ /^<\?xml(?: version="1.0"| encoding="([^\"]+)")+\?>/;
 
     $response =~ s!(\?>)!$1<?xml-stylesheet type="text/css"?>!
       if $self->request->content_type eq 'multipart/form-data';
@@ -606,7 +606,7 @@ sub handle {
     my $status =
       defined( $ENV{'SERVER_SOFTWARE'} )
       && $ENV{'SERVER_SOFTWARE'} =~ /IIS/
-      ? $ENV{SERVER_PROTOCOL} || 'HTTP/1.01'
+      ? $ENV{SERVER_PROTOCOL} || 'HTTP/1.02'
       : 'Status:';
     my $code = $self->response->code;
 
