@@ -38,4 +38,4 @@ requires:
   perl: 5.006
 resources:
   repository: https://github.com/redhotpenguin/soaplite
-version: 1.05
+version: 1.06
