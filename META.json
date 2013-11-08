@@ -4,7 +4,7 @@
       "Pavel Kulchenko, Randy J Ray, Byrne Reese, Martin Kutter (MKUTTER@cpan.org), Fred Moyer"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120630",
+   "generated_by" : "ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120921",
    "keywords" : [
       "SOAP",
       "SOAP client",
@@ -21,7 +21,9 @@
    "no_index" : {
       "directory" : [
          "t",
-         "inc"
+         "inc",
+         "examples",
+         "t"
       ]
    },
    "prereqs" : {
@@ -60,5 +62,5 @@
          "url" : "https://github.com/redhotpenguin/soaplite"
       }
    },
-   "version" : "1.07"
+   "version" : "1.08"
 }
