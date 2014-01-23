@@ -17,7 +17,7 @@ package SOAP::Lite;
 use strict;
 use warnings;
 
-our $VERSION = '1.09';
+our $VERSION = '1.10';
 
 package SOAP::XMLSchemaApacheSOAP::Deserializer;
 
@@ -114,7 +114,7 @@ sub as_base64 {
     # Fixes #30271 for 5.8 and above.
     # Won't fix for 5.6 and below - perl can't handle unicode before
     # 5.8, and applying pack() to everything is just a slowdown.
-    if (eval "require Encode; 1") {
+    if ($SOAP::Constants::HAS_ENCODE) {
         if (Encode::is_utf8($value)) {
             if (Encode->can('_utf8_off')) { # the quick way, but it may change in future Perl versions.
                 Encode::_utf8_off($value);
@@ -2960,7 +2960,7 @@ sub defaultlog {
 
 sub import {
     no strict 'refs';
-    local $^W;
+    no warnings qw{ redefine }; # suppress warnings about redefining
     my $pack = shift;
     my(@notrace, @symbols);
     for (@_) {
@@ -2977,7 +2977,6 @@ sub import {
             $minus ? push(@notrace, $all ? @list : $_) : push(@symbols, $all ? @list : $_);
         }
     }
-    no warnings qw{ redefine };
     foreach (@symbols) { *$_ = \&defaultlog }
     foreach (@notrace) { *$_ = sub {} }
 }

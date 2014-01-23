@@ -40,4 +40,4 @@ requires:
   perl: 5.006
 resources:
   repository: https://github.com/redhotpenguin/soaplite
-version: 1.09
+version: 1.10
