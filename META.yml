@@ -7,7 +7,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 0
 dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.78, CPAN::Meta::Converter version 2.132830'
+generated_by: 'ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120630'
 keywords:
   - SOAP
   - 'SOAP client'
@@ -40,4 +40,4 @@ requires:
   perl: 5.006
 resources:
   repository: https://github.com/redhotpenguin/soaplite
-version: 1.10
+version: 1.11
